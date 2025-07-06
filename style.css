@@ -59,3 +59,11 @@ button:hover {                        /* Apply styles when user hovers over butt
   z-index: 20;               /* Above the overlay for interaction */
 }
 /* ...existing code... */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #d1c4e9;   /* Dreamy purple */
+  color: #111;
+  margin: 0;
+  padding: 0;
+}
