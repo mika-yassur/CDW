@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');  /* Import Google Fonts */
 
-body {                              /* Target the entire page body */
-  font-family: 'Roboto', sans-serif;  /* Set the font to Roboto, with sans-serif as backup */
-  background-color: #ffffff;          /* Set background color to white */
-  color: #111;                        /* Set text color to dark gray (almost black) */
-  margin: 0;                          /* Remove default spacing around the body */
-  padding: 0;                         /* Remove default internal spacing */
-}
+
 
 main {                               /* Target the main content area */
   max-width: 800px;                   /* Limit the maximum width to 800 pixels */
@@ -61,7 +55,7 @@ button:hover {                        /* Apply styles when user hovers over butt
 /* ...existing code... */
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Indie Flower', cursive;
   background-color: #d1c4e9;   /* Dreamy purple */
   color: #111;
   margin: 0;
