@@ -25,3 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {  // Wait for HTML to 
         }, 2000);                                              // Wait 2000 milliseconds (2 seconds)
     });
 });
+document.getElementById('demoButton').addEventListener('click', function() {
+this.classList.add('float-away');
+});

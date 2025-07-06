@@ -61,3 +61,13 @@ body {
   margin: 0;
   padding: 0;
 }
+@keyframes float-away {
+  to {
+    transform: translateY(-120vh) scale(1.2) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+.float-away {
+  animation: float-away 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
