@@ -60,6 +60,10 @@ body {
   color: #111;
   margin: 0;
   padding: 0;
+  transition: background-color 2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
+}
+.bg-orange {
+  background-color: #ffe0b2 !important; /* Light orange */
 }
 @keyframes float-away {
   to {
