@@ -8,9 +8,8 @@ function init() {
   // Scene setup
   scene = new THREE.Scene();
 
-  // Add fog (white, starting at 5 units, fully fogged at 15 units)
-scene.fog = new THREE.Fog(fogColor, 5, 15);
-renderer.setClearColor(fogColor);
+  const fogColor = new THREE.Color(0xf0f0f0); // soft milky gray fog
+  scene.fog = new THREE.Fog(fogColor, 5, 15);
 
   // Camera setup
   const container = document.getElementById('three-container-1');
@@ -21,8 +20,10 @@ renderer.setClearColor(fogColor);
 
   // Renderer setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  renderer.setClearColor(fogColor); // sets background to match fog
   renderer.setSize(width, height);
   container.appendChild(renderer.domElement);
+
 
   // Matcha green color for cubes
   const matchaGreen = 0xb4e6a0;
