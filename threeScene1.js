@@ -9,7 +9,8 @@ function init() {
   scene = new THREE.Scene();
 
   // Add fog (white, starting at 5 units, fully fogged at 15 units)
-  scene.fog = new THREE.Fog(0xffffff, 5, 15);
+scene.fog = new THREE.Fog(fogColor, 5, 15);
+renderer.setClearColor(fogColor);
 
   // Camera setup
   const container = document.getElementById('three-container-1');
