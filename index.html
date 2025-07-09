@@ -1,36 +1,33 @@
-<!DOCTYPE html>                      <!-- Declares this is an HTML5 document -->
-<html lang="en">                     <!-- Root element, lang="en" specifies English language -->
-<head>                               <!-- Contains metadata about the page (not visible) -->
-  <meta charset="UTF-8">             <!-- Sets character encoding for special characters -->
-  <title>Module 1</title>            <!-- Title that appears in browser tab -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module 1</title>
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">>  <!-- Links to our CSS file for styling -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <link rel="stylesheet" href="style.css"> <!-- fixed extra > -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>                               <!-- Contains all visible content on the page -->
-  <header>                           <!-- Header section for navigation/branding -->
-    <div class="left">Columbia GSAPP</div>  <!-- Left side of header with institution name -->
-    <div class="center">             <!-- Center section of header -->
-      Computational Design Practices<br>    <!-- Main title with line break -->
-      <span>Project Archive</span>   <!-- Subtitle in smaller text -->
+
+<body>
+  <header>
+    <div class="left">Columbia GSAPP</div>
+    <div class="center">
+      Computational Design Practices<br>
+      <span>Project Archive</span>
     </div>
-    <div class="right"><a href="#">About</a></div>  <!-- Right side with navigation link -->
+    <div class="right"><a href="#">About</a></div>
   </header>
-<script src="3d-spatial-canvas.js"></script>
 
-<script src="sketch1.js"></script>
-<script src="sketch2.js"></script>
-<script src="sketch3.js"></script>
-<!-- Canvas container for first sketch -->
-<div id="canvas-container-1"></div>
+  <!-- Canvas containers (must appear before the scripts use them) -->
+  <div id="canvas-container-1"></div>
+  <div id="canvas-container-2"></div>
+  <div id="canvas-container-3"></div>
 
-<!-- Canvas container for second sketch -->
-<div id="canvas-container-2"></div>
-
-<!-- Canvas container for third sketch -->
-<div id="canvas-container-3"></div>
-
+  <!-- Load the p5 sketches AFTER containers exist -->
+  <script src="3d-spatial-canvas.js"></script>
+  <script src="sketch1.js"></script>
+  <script src="sketch2.js"></script>
+  <script src="sketch3.js"></script>
 </body>
 </html>
-
