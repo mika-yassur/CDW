@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <title>Transparent Spheres Field with Orbit Controls</title>
   <style>
     body { margin: 0; overflow: hidden; }
@@ -29,12 +29,12 @@
 
     // Transparent Spheres Material
     const sphereMaterial = new THREE.MeshStandardMaterial({
-      color: 0x3399ff,
-      transparent: true,
-      opacity: 0.3,
-      roughness: 0.5,
-      metalness: 0.1,
-      side: THREE.DoubleSide
+    color: 0x3399ff,
+    transparent: true,
+    opacity: 0.3,
+    roughness: 0.5,
+    metalness: 0.1,
+    side: THREE.DoubleSide
     });
 
     // Add a grid of spheres
