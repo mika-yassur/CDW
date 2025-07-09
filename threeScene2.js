@@ -1,5 +1,8 @@
 // threeScene2.js
+(() => {
+  let scene, camera, renderer, controls;
 
+  function init() {
 let scene, camera, renderer, controls;
 
 function init() {
@@ -66,5 +69,8 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-window.addEventListener('load', init);
+}
 
+
+  window.addEventListener('load', init);
+})();
