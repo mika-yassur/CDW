@@ -82,8 +82,15 @@ body {
   margin: 20px auto;
 }
 
-#three-container-2 {
+#canvas-container-1,
+
+#canvas-container-2 {
   width: 800px;
   height: 400px;
-  background: #ddd;
+  margin: 20px auto;
+}
+[id^="three-container-"] {
+  width: 800px;
+  height: 400px;
+  margin: 20px auto;
 }
