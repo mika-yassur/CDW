@@ -83,4 +83,5 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-window.onload = init;
+window.addEventListener('load', init);
+
