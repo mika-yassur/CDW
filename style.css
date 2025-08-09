@@ -377,3 +377,8 @@
   font-weight: 600;                   /* Bold font weight */
   color: #333;                        /* Dark gray text */
 }
+
+strong, b {
+  font-weight: 700;
+  text-decoration: underline;
+}
