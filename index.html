@@ -142,9 +142,17 @@
     <script src="poll-app.js"></script>
 
   <script>
+    // Keeps track of which project is currently visible
 let currentIndex = 0;
+// Collects all project panels (<div class="project"> elements)
 const projects = document.querySelectorAll('.project');
 
+/* -------------------------------
+   Function: showProject(index)
+   - Displays only the project at the given index
+   - Hides all other projects
+   - Handles map resize logic for the Mapbox project
+--------------------------------*/
 function showProject(index) {
   console.log(`Showing project ${index}`);
   projects.forEach((p, i) => {
@@ -189,6 +197,7 @@ function showProject(index) {
   }
 }
 
+//Function: prevProject(): Moves one project back in the list & wraps to the last project if at the beginning
 function prevProject() {
   currentIndex = (currentIndex - 1 + projects.length) % projects.length;
   showProject(currentIndex);
@@ -207,6 +216,7 @@ const mapContainer = document.getElementById('mapbox-container-3');
 console.log('Mapbox container found:', mapContainer);
 
 // temporal canvas script
+// defining philosophical periods 
 const events = [
   { name: 'Presocratic (Ancient Greek)', start: -600, end: -400, location: 'Ancient Greece' },
   { name: 'Classical Greek (Socrates–Aristotle)', start: -469, end: -322, location: 'Ancient Greece' },
@@ -227,7 +237,7 @@ const events = [
   { name: 'Neo‑Confucian', start: 960, end: 1800, location: 'China' },
   { name: 'Chinese Modern', start: 1800, end: 2025, location: 'China' }
 ];
-
+// assigning colors to each period
 const colors = {
   'Ancient Greece': '#0077b6',
   'Greece/Rome': '#0096c7',
@@ -239,14 +249,16 @@ const colors = {
   'India': '#ffd166',
   'China': '#06d6a0'
 };
-
+// Extract names for chart labels
 const labels = events.map(e => e.name);
+// Prepare dataset (start-end years mapped to horizontal bars)
 const data = events.map((e, i) => ({
   x: [e.start, e.end],
   y: e.name,
   backgroundColor: colors[e.location] || '#ccc'
 }));
 
+// Chart.js Timeline Rendering
 new Chart(document.getElementById('timelineChart'), {
   type: 'bar',
   data: {

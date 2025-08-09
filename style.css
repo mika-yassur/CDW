@@ -1,139 +1,128 @@
-    body {
-      font-family: 'EB Garamond', serif;
-      background-color: #f7f4ef;
-      color: #111;
-      margin: 0;
-    }
+/* ====== Base Page Styles ====== */
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: #f7f4ef;
+  color: #111;
+  margin: 0;
+}
 
-    header {
-      position: relative;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid #ccc;
-      font-size: 1.1rem;
-    }
+/* ====== Header Layout and Navigation ====== */
+header {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.1rem;
+}
 
-    header .left,
-    header .right {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+header .left,
+header .right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-    header .left {
-      left: 2rem;
-    }
+header .left  { left: 2rem; }
+header .right { right: 2rem; }
+header .center { text-align: center; }
 
-    header .right {
-      right: 2rem;
-    }
+header a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    header .center {
-      text-align: center;
-    }
+/* ====== Gallery Container and Arrows ====== */
+.gallery {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
 
-    header a {
-      text-decoration: none;
-      color: inherit;
-    }
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 5;
+}
 
-    .gallery {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: calc(100vh - 80px);
-    }
+.arrow.left  { left: 2vw; }
+.arrow.right { right: 2vw; }
+.arrow:hover { color: #000; }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2.5rem;
-      background: none;
-      border: none;
-      color: #444;
-      cursor: pointer;
-      transition: color 0.3s;
-      z-index: 5;
-    }
+/* ====== Canvas & Project Containers ====== */
+.canvas-wrapper {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .arrow.left  { left: 2vw; }
-    .arrow.right { right: 2vw; }
+.project {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    .arrow:hover {
-      color: #000;
-    }
+[id^="canvas-container-"] {
+  width: 100%;
+  height: 100%;
+}
 
-    .canvas-wrapper {
-      width: 800px;
-      height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .project {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    [id^="canvas-container-"] {
-      width: 100%;
-      height: 100%;
-    }
-
-    /* Specific styles for the temporal canvas project */
-    #project-6 {
-      padding: 20px;
-    }
-
-    #project-6 h2 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      font-weight: 400;
-    }
-
-    #timelineChart {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    #project-6 p {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 1rem;
-      max-width: 600px;
-    }
-
-    #project-6 a {
-      color: #0077b6;
-      text-decoration: none;
-    }
-
-    #project-6 a:hover {
-      text-decoration: underline;
-    }
-
- #project-6 {
+/* ====== Temporal Canvas (Project 6) Styles ====== */
+#project-6 {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;   /* horizontal center */
   justify-content: center; /* vertical center */
-  padding: 20px;
   min-height: 500px; /* match other canvas wrapper height */
 }
 
-/* everything after this is nodal network specific */
+#project-6 h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+#timelineChart {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#project-6 p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+#project-6 a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+#project-6 a:hover {
+  text-decoration: underline;
+}
+
+/* ====== Nodal Network Visualization Styles ====== */
 .network_wrap {
   width: 100%;
   height: 100%;
@@ -148,97 +137,83 @@
   cursor: grab;
 }
 
-        #network.panning {
-            cursor: grabbing;
-        }
+#network.panning { cursor: grabbing; }
 
-        .node {
-            fill: rgb(60, 59, 59);
-            stroke: rgb(59, 57, 57);
-            stroke-width: 2px;
-            cursor: move;
-        }
+.node {
+  fill: rgb(60, 59, 59);
+  stroke: rgb(59, 57, 57);
+  stroke-width: 2px;
+  cursor: move;
+}
+.node:hover     { fill: #cccccc; }
+.node.dragging  { fill: #888888; }
 
-        .node:hover {
-            fill: #cccccc;
-        }
+.link {
+  stroke: rgb(43, 42, 42);
+  stroke-opacity: 0.6;
+  stroke-width: 1px;
+}
 
-        .node.dragging {
-            fill: #888888;
-        }
+.node-label {
+  font-size: 12px;
+  fill: rgb(56, 55, 55);
+  text-anchor: middle;
+  pointer-events: none;
+  font-weight: 500;
+}
 
-        .link {
-            stroke: rgb(43, 42, 42);
-            stroke-opacity: 0.6;
-            stroke-width: 1px;
-        }
+.zoom-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-        .node-label {
-            font-size: 12px;
-            fill: rgb(56, 55, 55);
-            text-anchor: middle;
-            pointer-events: none;
-            font-weight: 500;
-        }
+.zoom-btn {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.zoom-btn:hover { background-color: rgba(255, 255, 255, 0.2); }
 
-        .zoom-controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+.zoom-info {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
 
-        .zoom-btn {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s;
-        }
-
-        .zoom-btn:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .zoom-info {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 12px;
-            font-family: monospace;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-   
-/* Replace your existing map CSS with this: */
-
+/* ====== Mapbox Container (Project 8) ====== */
 #mapbox-container-3 {
   flex: 1; /* This makes it grow to fill remaining space */
   width: 100%;
   min-height: 0; /* Important for flex children */
 }
 
-/* Make sure project-8 uses flex layout ONLY when it's visible */
 #project-8 {
   flex-direction: column;
   height: 100%;
 }
 
-/* This ensures the project shows as flex when it's made visible by JavaScript */
 #project-8[style*="block"] {
   display: flex !important;
 }
@@ -250,6 +225,7 @@
   font-weight: bold;
   text-align: center;
 }
+
 .project {
   flex: 1;
   width: 100%;
@@ -257,127 +233,109 @@
   display: flex;
   flex-direction: column;
   position: relative;
-
 }
 
-/* Engagement component styling */
-
-/* Main poll container */
+/* ====== Engagement / Poll Component Styles ====== */
+/* Poll container */
 .poll-container {
-  margin-bottom: 40px;                /* Space below the poll */
-  padding: 32px;                      /* Internal spacing */
-  border: 2px solid #e0e0e0;          /* Subtle border */
-  border-radius: 12px;                /* Rounded corners */
-  background-color: #fafafa;          /* Very light background */
-  text-align: center;                 /* Center all content */
+  margin-bottom: 40px;
+  padding: 32px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #fafafa;
+  text-align: center;
 }
 
-/* Poll question styling */
+/* Poll question text */
 .poll-question h3 {
-  font-size: 20px;                    /* Larger font for the question */
-  font-weight: 500;                   /* Medium font weight */
-  margin-bottom: 24px;                /* Space below the question */
-  color: #333;                        /* Dark gray text */
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #333;
 }
 
-/* Vote buttons container */
+/* Vote buttons layout */
 .vote-buttons {
-  display: flex;                       /* Use flexbox for button layout */
-  justify-content: center;             /* Center buttons horizontally */
-  gap: 20px;                          /* Space between buttons */
-  margin-bottom: 24px;                /* Space below buttons */
-  flex-wrap: wrap;                    /* Allow buttons to wrap on small screens */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 
-/* Individual vote button styling */
+/* Shared vote button styles */
 .vote-btn {
-  display: flex;                       /* Use flexbox for button content */
-  flex-direction: column;              /* Stack text and count vertically */
-  align-items: center;                 /* Center content horizontally */
-  justify-content: center;             /* Center content vertically */
-  min-width: 120px;                   /* Minimum button width */
-  padding: 20px 24px;                 /* Internal spacing */
-  border: none;                        /* No border */
-  border-radius: 8px;                 /* Rounded corners */
-  font-size: 16px;                    /* Font size */
-  font-weight: 500;                   /* Medium font weight */
-  cursor: pointer;                    /* Hand cursor on hover */
-  transition: all 0.3s ease;          /* Smooth transitions */
-  font-family: 'Roboto', sans-serif;  /* Consistent font */
-  position: relative;                 /* For hover effects */
-  overflow: hidden;                   /* Hide overflow for effects */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 20px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Yes button specific styling - Light Blue */
+/* "Yes" button style */
 .vote-yes {
-  background: linear-gradient(135deg, #42A5F5, #2196F3); /* Light blue gradient */
-  color: white;                       /* White text */
-  box-shadow: 0 4px 15px rgba(66, 165, 245, 0.3); /* Light blue shadow */
+  background: linear-gradient(135deg, #42A5F5, #2196F3);
+  color: white;
+  box-shadow: 0 4px 15px rgba(66, 165, 245, 0.3);
 }
+.vote-yes:hover  { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(66, 165, 245, 0.4); }
+.vote-yes:active { transform: translateY(0); }
 
-.vote-yes:hover {
-  transform: translateY(-2px);        /* Lift effect on hover */
-  box-shadow: 0 6px 20px rgba(66, 165, 245, 0.4); /* Enhanced shadow */
-}
-
-.vote-yes:active {
-  transform: translateY(0);           /* Return to normal on click */
-}
-
-/* No button specific styling - Dark Blue */
+/* "No" button style */
 .vote-no {
-  background: linear-gradient(135deg, #1565C0, #0D47A1); /* Dark blue gradient */
-  color: white;                       /* White text */
-  box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3); /* Dark blue shadow */
+  background: linear-gradient(135deg, #1565C0, #0D47A1);
+  color: white;
+  box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
 }
+.vote-no:hover  { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4); }
+.vote-no:active { transform: translateY(0); }
 
-.vote-no:hover {
-  transform: translateY(-2px);        /* Lift effect on hover */
-  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4); /* Enhanced shadow */
-}
-
-.vote-no:active {
-  transform: translateY(0);           /* Return to normal on click */
-}
-
-/* Vote text styling */
+/* Vote text + count styles */
 .vote-text {
-  font-size: 18px;                    /* Larger font for vote text */
-  font-weight: 600;                   /* Bold font weight */
-  margin-bottom: 8px;                 /* Space below text */
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-/* Vote count styling */
 .vote-count {
-  font-size: 24px;                    /* Large font for count */
-  font-weight: 700;                   /* Bold font weight */
-  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-  padding: 4px 12px;                  /* Internal spacing */
-  border-radius: 20px;                /* Rounded background */
-  min-width: 40px;                    /* Minimum width for count */
-  display: inline-block;              /* Block display for padding */
+  font-size: 24px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  min-width: 40px;
+  display: inline-block;
 }
 
 /* Total votes display */
 .total-votes {
-  margin-top: 20px;                   /* Space above total */
-  padding: 16px;                      /* Internal spacing */
-  background-color: white;            /* White background */
-  border-radius: 8px;                 /* Rounded corners */
-  border: 1px solid #e0e0e0;          /* Light border */
+  margin-top: 20px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
 }
-
 .total-votes p {
-  margin: 0;                          /* Remove default margin */
-  font-size: 14px;                    /* Smaller font */
-  color: #666;                        /* Medium gray text */
+  margin: 0;
+  font-size: 14px;
+  color: #666;
 }
-
 .total-votes span {
-  font-weight: 600;                   /* Bold font weight */
-  color: #333;                        /* Dark gray text */
+  font-weight: 600;
+  color: #333;
 }
 
+/* Bold text style override */
 strong, b {
   font-weight: 700;
   text-decoration: underline;

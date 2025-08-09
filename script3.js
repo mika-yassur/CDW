@@ -1,3 +1,4 @@
+ // creating nodes for relational networks based on my final project 
   const nodes = [
             { id: "Samia Henni", x: 300, y: 100 },
             { id: "reformulations of language", x: 800, y: 180 },
@@ -44,7 +45,7 @@
             { id: "embodiment", x: 1400, y: 2800 }
 
         ];
-
+// creating edges
         const allLinks = [
             { source: "systems of power", target: "reformulations of language" },
             { source: "systems of power", target: "cartographies" },
