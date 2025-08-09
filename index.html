@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Module 1</title>
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> <!-- fixed extra > -->
+  <title>Module 1 – Project Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -21,32 +23,153 @@
     <div class="right"><a href="#">About</a></div>
   </header>
 
-  <!-- Canvas containers (must appear before the scripts use them) -->
-  <div id="canvas-container-1"></div>
-  <div id="canvas-container-2"></div>
-  <div id="canvas-container-3"></div>
+  <div class="gallery">
+    <button class="arrow left" onclick="prevProject()">&#8592;</button>
 
+    <div class="canvas-wrapper">
+      <!-- p5 sketches -->
+      <div class="project" id="project-1">
+        <div id="canvas-container-1"></div>
+      </div>
+      <div class="project" id="project-2" style="display:none;">
+        <div id="canvas-container-2"></div>
+      </div>
 
+      <!-- three.js scenes -->
+      <div class="project" id="project-4" style="display:none;">
+        <div id="three-container-1"></div>
+      </div>
+      <div class="project" id="project-5" style="display:none;">
+        <div id="three-container-2"></div>
+      </div>
+    
 
-  <!-- Load the p5 sketches AFTER containers exist -->
-  <script src="3d-spatial-canvas.js"></script>
+  <!-- temporal canvas -->
+   <div class="project" id="project-6" style="display:none;">
+   <h2>Philosophical Periods Timeline</h2>
+  <canvas id="timelineChart" width="1000" height="600"></canvas>
+<p style="font-size: 0.9rem; color: #555; margin-top: 1rem;">
+  Data source: <a href="https://en.wikipedia.org/wiki/History_of_philosophy" target="_blank">Wikipedia - History of Philosophy</a>
+</p>
+</div>
+</div>
+    <button class="arrow right" onclick="nextProject()">&#8594;</button>
+  </div>
+
+  <!-- p5 sketches -->
   <script src="sketch1.js"></script>
   <script src="sketch2.js"></script>
-  <script src="sketch3.js"></script>
+
+  <!-- three.js scenes -->
+  <script src="threeScene1.js"></script>
+  <script src="threeScene2.js"></script>
+
+  <script>
+    let currentIndex = 0;
+    const projects = document.querySelectorAll('.project');
+
+    function showProject(index) {
+      projects.forEach((p, i) => {
+        p.style.display = (i === index) ? 'block' : 'none';
+      });
+    }
+
+    function prevProject() {
+      currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+      showProject(currentIndex);
+    }
+
+    function nextProject() {
+      currentIndex = (currentIndex + 1) % projects.length;
+      showProject(currentIndex);
+    }
+
+    // temporal canvas script
+    const events = [
+      { name: 'Presocratic (Ancient Greek)', start: -600, end: -400, location: 'Ancient Greece' },
+      { name: 'Classical Greek (Socrates–Aristotle)', start: -469, end: -322, location: 'Ancient Greece' },
+      { name: 'Hellenistic/Roman', start: -322, end: 529, location: 'Greece/Rome' },
+      { name: 'Medieval (Western)', start: 400, end: 1500, location: 'Western Europe' },
+      { name: 'Renaissance', start: 1350, end: 1600, location: 'Italy/Western Europe' },
+      { name: 'Early Modern', start: 1600, end: 1800, location: 'Western Europe' },
+      { name: 'Enlightenment', start: 1650, end: 1800, location: 'Western Europe' },
+      { name: '19th-Century', start: 1800, end: 1900, location: 'Europe/America' },
+      { name: '20th-Century', start: 1900, end: 2000, location: 'Global' },
+      { name: 'Arabic–Persian Classical', start: 800, end: 1200, location: 'Middle East' },
+      { name: 'Arabic–Persian Post‑Classical', start: 1200, end: 1600, location: 'Middle East' },
+      { name: 'Indian Ancient', start: -900, end: -200, location: 'India' },
+      { name: 'Indian Classical & Medieval', start: -200, end: 1800, location: 'India' },
+      { name: 'Indian Modern', start: 1800, end: 2025, location: 'India' },
+      { name: 'Chinese Early', start: -500, end: 221, location: 'China' },
+      { name: 'Chinese Han–Song', start: 221, end: 960, location: 'China' },
+      { name: 'Neo‑Confucian', start: 960, end: 1800, location: 'China' },
+      { name: 'Chinese Modern', start: 1800, end: 2025, location: 'China' }
+    ];
+
+    const colors = {
+      'Ancient Greece': '#0077b6',
+      'Greece/Rome': '#0096c7',
+      'Western Europe': '#00b4d8',
+      'Italy/Western Europe': '#48cae4',
+      'Europe/America': '#90e0ef',
+      'Global': '#ade8f4',
+      'Middle East': '#ff6f61',
+      'India': '#ffd166',
+      'China': '#06d6a0'
+    };
+
+    const labels = events.map(e => e.name);
+    const data = events.map((e, i) => ({
+      x: [e.start, e.end],
+      y: e.name,
+      backgroundColor: colors[e.location] || '#ccc'
+    }));
+
+    new Chart(document.getElementById('timelineChart'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Philosophical Periods',
+          data: events.map(e => ({ x: [e.start, e.end], y: e.name })),
+          backgroundColor: events.map(e => colors[e.location] || '#888'),
+          borderWidth: 1,
+          barThickness: 16
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const ev = events[ctx.dataIndex];
+                return `${ev.name}: ${ev.start} – ${ev.end} (${ev.location})`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            type: 'linear',
+            title: { display: true, text: 'Year' },
+            ticks: {
+              callback: val => val < 0 ? `${-val} BCE` : `${val} CE`
+            },
+            min: -1000,
+            max: 2100
+          },
+          y: {
+            title: { display: true, text: 'Philosophical Period' }
+          }
+        }
+      }
+    });
+    // end of temporal canvas script
 
 
-
-<!-- Load OrbitControls BEFORE any scenes that use it -->
-
-<!-- Container for scene 1 -->
-<div id="three-container-1"></div>
-
-<!-- Then load the first scene -->
-<script src="threeScene1.js"></script>
-
-<!-- Container and script for scene 2 -->
-<div id="three-container-2"></div>
-<script src="threeScene2.js"></script>
-
+  </script>
 </body>
 </html>

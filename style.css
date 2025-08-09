@@ -1,96 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');  /* Import Google Fonts */
+    body {
+      font-family: 'EB Garamond', serif;
+      background-color: #f7f4ef;
+      color: #111;
+      margin: 0;
+    }
 
+    header {
+      position: relative;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #ccc;
+      font-size: 1.1rem;
+    }
 
+    header .left,
+    header .right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-main {                               /* Target the main content area */
-  max-width: 800px;                   /* Limit the maximum width to 800 pixels */
-  margin: 60px auto;                  /* Add 60px top/bottom margin, center horizontally */
-  padding: 0 20px;                    /* Add 20px left/right padding, no top/bottom */
-}
+    header .left {
+      left: 2rem;
+    }
 
-.section-title {                      /* Target elements with class="section-title" */
-  font-weight: 700;                   /* Make the text bold */
-  text-transform: uppercase;          /* Convert text to all capital letters */
-  margin-top: 40px;                   /* Add 40 pixels of space above this element */
-  margin-bottom: 12px;                /* Add 12 pixels of space below this element */
-  font-size: 14px;                    /* Set font size to 14 pixels */
-}
+    header .right {
+      right: 2rem;
+    }
 
-button {                              /* Target all button elements */
-  background-color: #111;             /* Set button background to dark gray */
-  color: white;                       /* Set button text color to white */
-  border: none;                       /* Remove the default button border */
-  padding: 12px 24px;                 /* Add 12px top/bottom, 24px left/right spacing inside */
-  cursor: pointer;                    /* Change mouse cursor to hand when hovering over button */
-  transition: background-color 0.3s;  /* Smooth color change animation (0.3 seconds) */
-}
+    header .center {
+      text-align: center;
+    }
 
-button:hover {                        /* Apply styles when user hovers over button */
-  background-color: #333;             /* Change background to lighter gray on hover */
-}
+    header a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-#messageDisplay {                     /* Target element with id="messageDisplay" */
-  margin-top: 20px;                   /* Add 20 pixels of space above this element */
-  padding: 16px;                      /* Add 16 pixels of spacing inside the element */
-  border: 1px solid #ccc;             /* Add a light gray border around the element */
-  background-color: #f9f9f9;          /* Set background color to very light gray */
-  min-height: 20px;                   /* Set minimum height so the area is visible even when empty */
-}
+    .gallery {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 80px);
+    }
 
-.overlay {
-  position: fixed;           /* Cover the whole viewport */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.15); /* Black, 15% opacity */
-  pointer-events: none;      /* Allows clicks to pass through */
-  z-index: 10;               /* Make sure it's above content */
-}
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      color: #444;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 5;
+    }
 
-.content {
-  position: relative;
-  z-index: 20;               /* Above the overlay for interaction */
-}
-/* ...existing code... */
+    .arrow.left  { left: 2vw; }
+    .arrow.right { right: 2vw; }
 
-body {
-  font-family: 'Indie Flower', cursive;
-  background-color: #d1c4e9;   /* Dreamy purple */
-  color: #111;
-  margin: 0;
-  padding: 0;
-  transition: background-color 2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
-}
-.bg-orange {
-  background-color: #ffe0b2 !important; /* Light orange */
-}
-@keyframes float-away {
-  to {
-    transform: translateY(-120vh) scale(1.2) rotate(-10deg);
-    opacity: 0;
-  }
-}
+    .arrow:hover {
+      color: #000;
+    }
 
-.float-away {
-  animation: float-away 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-#canvas-container-1,
-#canvas-container-2 {
-  width: 800px;
-  height: 400px;
-  margin: 20px auto;
-}
+    .canvas-wrapper {
+      width: 800px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-#canvas-container-1,
+    .project {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-#canvas-container-2 {
-  width: 800px;
-  height: 400px;
-  margin: 20px auto;
-}
-[id^="three-container-"] {
-  width: 800px;
-  height: 400px;
-  margin: 20px auto;
+    [id^="canvas-container-"] {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Specific styles for the temporal canvas project */
+    #project-6 {
+      padding: 20px;
+    }
+
+    #project-6 h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    #timelineChart {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    #project-6 p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+
+    #project-6 a {
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    #project-6 a:hover {
+      text-decoration: underline;
+    }
+
+ #project-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* horizontal center */
+  justify-content: center; /* vertical center */
+  padding: 20px;
+  min-height: 500px; /* match other canvas wrapper height */
 }
